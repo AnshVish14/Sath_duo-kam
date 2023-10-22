@@ -2,8 +2,8 @@ import java.io.*;
 class data{
 public static void main(String[] args){
     try{
-        FileInputStream fin = new FileInputStream("d:\\abc.txt");
-        FileOutputStream fout = new FileOutputStream("d:\\xyz.txt");
+        FileInputStream fin = new FileInputStream("abc.txt");
+        FileOutputStream fout = new FileOutputStream("xyz.txt");
         int i;
         while((i=fin.read())!=-1)
         {
