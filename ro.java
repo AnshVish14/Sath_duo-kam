@@ -114,7 +114,7 @@ class equal extends JFrame implements ActionListener{
         f.add(D);
         f.add(E);
 
-        f.setSize(400,400);
+        f.setSize(600,600);
         f.setLayout(null);
         f.setVisible(true);
     }
