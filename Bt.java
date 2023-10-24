@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.ActionListener;
-import awt.event.*;
 import javax.swing.*;
 public class Bt extends JFrame{
   public static void main(String[] args){
