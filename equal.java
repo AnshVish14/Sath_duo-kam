@@ -2,8 +2,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
-import java.awt.*;
-class equal extends JFrame implements ActionListener{
+abstract class equal extends JFrame implements ActionListener{
     public static void main(String[] args){
         JFrame f = new JFrame("Ansh & Shivansh..... Calculator");
 
@@ -18,8 +17,6 @@ class equal extends JFrame implements ActionListener{
         JTextField tf = new JTextField();
         tf.setBounds(50,150,400,30);
         f1.setBounds(50,110,300,30);
-
-       
         
          b1 = new Button("1");
          b1.setBounds(50,200,100,30);
