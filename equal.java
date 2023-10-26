@@ -6,6 +6,7 @@ public class equal extends JFrame implements ActionListener{
     
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,Remove,Cls;
     Button A,S,M,D,E ;
+    double num1,num2,check;
     JLabel H,f1;
     JTextField tf;
     
@@ -199,12 +200,53 @@ public class equal extends JFrame implements ActionListener{
         }
 
         //AIRTHMETIC BUTTON
-        
-        if(e.getSource()==b0){ 
-            zt = tf.getText();
-            z=zt+"0";
+        if(e.getSource()==A){     //FOR ADDITION
+            try{
+                num1=Double.parseDouble(tf.getText());
+            } catch(NumberFormatException f) {
+                tf.setText("Invaild Format");
+                return;
+            }
+            z=" ";
             tf.setText(z);
+            check=1;
         }
+        if(e.getSource()==S){     //FOR SUBTRACTION
+            try{
+                num1=Double.parseDouble(tf.getText());
+            } catch(NumberFormatException f) {
+                tf.setText("Invaild Format");
+                return;
+            }
+            z=" ";
+            tf.setText(z);
+            check=2;
+        }
+        if(e.getSource()==M){     //FOR MULTIPLICATION
+            try{
+                num1=Double.parseDouble(tf.getText());
+            } catch(NumberFormatException f) {
+                tf.setText("Invaild Format");
+                return;
+            }
+            z=" ";
+            tf.setText(z);
+            check=3;
+        }
+        if(e.getSource()==D){     //FOR DIVISON
+            try{
+                num1=Double.parseDouble(tf.getText());
+            } catch(NumberFormatException f) {
+                tf.setText("Invaild Format");
+                return;
+            }
+            z=" ";
+            tf.setText(z);
+            check=4;
+        }
+
+        //RESULT BUTTON
+
     }
 
     public static void main(String args[]){
