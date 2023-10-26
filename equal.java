@@ -2,19 +2,21 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
-abstract class equal extends JFrame implements ActionListener{
-    public static void main(String[] args){
+public class equal extends JFrame implements ActionListener{
+    
+    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,Remove,Cls;
+    Button A,S,M,D,E ;
+    JLabel H,f1;
+    JTextField tf;
+    
+    equal(){
         JFrame f = new JFrame("Ansh & Shivansh..... Calculator");
-
-        Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,Remove,Cls;
-        Button A,S,M,D,E ;
-
-        JLabel H = new JLabel("<|<|...HAR.HAR.MAHADEV...|>|>");
+        H = new JLabel("<|<|...HAR.HAR.MAHADEV...|>|>");
         H.setBounds(180,50,300,50);
         H.setForeground(Color.ORANGE);
 
-        JLabel f1 = new JLabel(" PLEASE ENTER A NUMBER :-");
-        JTextField tf = new JTextField();
+        f1 = new JLabel(" PLEASE ENTER A NUMBER :-");
+        tf = new JTextField();
         tf.setBounds(50,150,400,30);
         f1.setBounds(50,110,300,30);
         
@@ -132,5 +134,80 @@ abstract class equal extends JFrame implements ActionListener{
         f.setSize(540,540);
         f.setLayout(null);
         f.setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e) {
+        String z,zt;
+
+        //NUMBER BUTTON
+        if(e.getSource()==b1){
+            zt = tf.getText();
+            z=zt+"1";
+            tf.setText(z);
+        }
+        if(e.getSource()==b2){
+            zt = tf.getText();
+            z=zt+"2";
+            tf.setText(z);
+        }
+        if(e.getSource()==b3){
+            zt = tf.getText();
+            z=zt+"3";
+            tf.setText(z);
+        }
+        if(e.getSource()==b4){
+            zt = tf.getText();
+            z=zt+"4";
+            tf.setText(z);
+        }
+        if(e.getSource()==b5){
+            zt = tf.getText();
+            z=zt+"5";
+            tf.setText(z);
+        }
+        if(e.getSource()==b6){
+            zt = tf.getText();
+            z=zt+"6";
+            tf.setText(z);
+        }
+        if(e.getSource()==b7){
+            zt = tf.getText();
+            z=zt+"7";
+            tf.setText(z);
+        }
+        if(e.getSource()==b8){
+            zt = tf.getText();
+            z=zt+"8";
+            tf.setText(z);
+        }
+        if(e.getSource()==b9){
+            zt = tf.getText();
+            z=zt+"9";
+            tf.setText(z);
+        }
+        if(e.getSource()==b0){
+            zt = tf.getText();
+            z=zt+"0";
+            tf.setText(z);
+        }
+
+        if(e.getSource()==Remove){ //FOR BACKSPACE
+            zt = tf.getText();
+            try{
+                z=zt.substring(0, zt.length()-1);
+            } catch(StringIndexOutOfBoundsException f){return;}
+            tf.setText(z);
+        }
+
+        //AIRTHMETIC BUTTON
+        
+        if(e.getSource()==b0){ 
+            zt = tf.getText();
+            z=zt+"0";
+            tf.setText(z);
+        }
+    }
+
+    public static void main(String args[]){
+        new equal();
     }
 }
