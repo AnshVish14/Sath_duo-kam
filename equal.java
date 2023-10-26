@@ -8,6 +8,8 @@ public class equal extends JFrame implements ActionListener{
     Button A,S,M,D,E ;
     JLabel H,f1;
     JTextField tf;
+    double n1,n2,check;
+    double R;
     
     equal(){
         JFrame f = new JFrame("Ansh & Shivansh..... Calculator");
@@ -139,6 +141,7 @@ public class equal extends JFrame implements ActionListener{
         String z,zt;
 
         //NUMBER BUTTON
+
         if(e.getSource()==b1){
             zt = tf.getText();
             z=zt+"1";
@@ -190,7 +193,9 @@ public class equal extends JFrame implements ActionListener{
             tf.setText(z);
         }
 
-        if(e.getSource()==Remove){ //FOR BACKSPACE
+         //FOR BACKSPACE
+
+        if(e.getSource()==Remove){ 
             zt = tf.getText();
             try{
                 z=zt.substring(0, zt.length()-1);
@@ -200,11 +205,33 @@ public class equal extends JFrame implements ActionListener{
 
         //AIRTHMETIC BUTTON
         
-        if(e.getSource()==b0){ 
+        if(e.getSource()==A){ 
             zt = tf.getText();
-            z=zt+"0";
+            z = zt+"+";
+            tf.setText(z);
+            check=1;
+        }
+
+        //CALCULATE THE RESULT
+
+        if(e.getSource()==E){
+            n2=Double.parseDouble(tf.getText());
+            if(check == 1)
+            R = n1+n2;
+            tf.setText(String.valueOf(R));
+        }
+
+        // FOR CLEAR SCREEN 
+
+        if(e.getSource()==Cls){
+            n1=0;
+            n2=0;
+            check=0;
+            R=0;
+            z="";
             tf.setText(z);
         }
+
     }
 
     public static void main(String args[]){
