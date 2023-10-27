@@ -6,9 +6,9 @@ public class equal extends JFrame implements ActionListener{
     
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,Remove,Cls;
     Button A,S,M,D,E ;
+    double n1,n2,check;
     JLabel H,f1;
     JTextField tf;
-    double n1,n2,check;
     double R;
     
     equal(){
@@ -207,21 +207,39 @@ public class equal extends JFrame implements ActionListener{
         
         if(e.getSource()==A){ 
             zt = tf.getText();
-            z = zt+"+";
+            z=zt+"+";
             tf.setText(z);
             check=1;
         }
 
-        //CALCULATE THE RESULT
+        //SUBSTRACTION BUTTON
 
-        if(e.getSource()==E){
-            n2=Double.parseDouble(tf.getText());
-            if(check == 1)
-            R = n1+n2;
-            tf.setText(String.valueOf(R));
+        if(e.getSource()==S){
+           zt=tf.getText();
+           z=zt+"-";
+           tf.setText(z);
+           check=2;
         }
 
-        // FOR CLEAR SCREEN 
+        //MULTIPICATION BUTTON
+        
+        if(e.getSource()==M){
+            zt=tf.getText();
+            z=zt+"*";
+            tf.setText(z);
+            check=3;
+        }
+
+        //DIVIDE BUTTON
+
+        if(e.getSource()==D){
+            zt=tf.getText();
+            z=zt+"/";
+            tf.setText(z);
+            check=4;
+        }
+
+        //CLEAR SCREEN
 
         if(e.getSource()==Cls){
             n1=0;
@@ -231,10 +249,28 @@ public class equal extends JFrame implements ActionListener{
             z="";
             tf.setText(z);
         }
+        //TO CALCULATE THE VALUE GIVEN
 
-    }
-
-    public static void main(String args[]){
+        if(e.getSource()==E){          
+            try{
+              n2=Double.parseDouble(tf.getText());
+              }catch(Exception f){
+                tf.setText("ENTER NUMBER FIRST ");
+                return;
+              }
+              if(check==1)
+              R=n1+n2;
+              if(check==2)
+              R=n1-n2;
+              if(check==3)
+              R=n1*n2;
+              if(check==4)
+              R =n1/n2;    
+              tf.setText(String.valueOf(R));
+  }
+}
+        
+        public static void main(String args[]){
         new equal();
     }
 }
