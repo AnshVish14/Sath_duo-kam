@@ -1,26 +1,24 @@
 import java.awt.event.*;
-import javax.swing.*;
+import javax.swing.JFrame;
 import java.awt.*;
 
 public class equal extends JFrame implements ActionListener{
-    
+    JFrame f;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,Remove,Cls;
     Button A,S,M,D,E ;
     double n1,n2,check;
-    JLabel H,f1;
-    JTextField tf;
+    Label H,dl;
     double R;
     
     equal(){
-        JFrame f = new JFrame("Ansh & Shivansh..... Calculator");
-        H = new JLabel("<|<|...HAR.HAR.MAHADEV...|>|>");
+        f = new JFrame("Ansh & Shivansh..... Calculator");
+        H = new Label("<|<|...HAR.HAR.MAHADEV...|>|>");
         H.setBounds(180,50,300,50);
         H.setForeground(Color.ORANGE);
 
-        f1 = new JLabel(" PLEASE ENTER A NUMBER :-");
-        tf = new JTextField();
-        tf.setBounds(50,150,400,30);
-        f1.setBounds(50,110,300,30);
+        dl = new Label();
+        dl.setBackground(Color.LIGHT_GRAY);
+        dl.setBounds(50,150,400,50);
         
         //Numbers 1 to 10
          b1 = new Button("1");
@@ -113,8 +111,7 @@ public class equal extends JFrame implements ActionListener{
      
         //ADDING TO FRAME
         f.add(H);
-        f.add(tf);
-        f.add(f1);
+        f.add(dl);
         f.add(b1);
         f.add(b2);
         f.add(b3);
@@ -137,105 +134,126 @@ public class equal extends JFrame implements ActionListener{
         f.setLayout(null);
         f.setVisible(true);
     }
+
     public void actionPerformed(ActionEvent e) {
         String z,zt;
 
         //NUMBER BUTTON
 
         if(e.getSource()==b1){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"1";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b2){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"2";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b3){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"3";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b4){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"4";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b5){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"5";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b6){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"6";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b7){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"7";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b8){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"8";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b9){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"9";
-            tf.setText(z);
+            dl.setText(z);
         }
         if(e.getSource()==b0){
-            zt = tf.getText();
+            zt = dl.getText();
             z=zt+"0";
-            tf.setText(z);
+            dl.setText(z);
         }
 
          //FOR BACKSPACE
 
         if(e.getSource()==Remove){ 
-            zt = tf.getText();
+            zt = dl.getText();
             try{
                 z=zt.substring(0, zt.length()-1);
             } catch(StringIndexOutOfBoundsException f){return;}
-            tf.setText(z);
+            dl.setText(z);
         }
 
         //AIRTHMETIC BUTTON
         
         if(e.getSource()==A){ 
-            zt = tf.getText();
-            z=zt+"+";
-            tf.setText(z);
+            try{
+                n1=Double.parseDouble(dl.getText());
+            } catch(NumberFormatException f) {
+                dl.setText("Invalid Format");
+                return;
+            }
+            z="";
+            dl.setText(z);
             check=1;
         }
 
         //SUBSTRACTION BUTTON
 
         if(e.getSource()==S){
-           zt=tf.getText();
-           z=zt+"-";
-           tf.setText(z);
+           try{
+                n1=Double.parseDouble(dl.getText());
+            } catch(NumberFormatException f) {
+                dl.setText("Invalid Format");
+                return;
+            }
+           z="";
+           dl.setText(z);
            check=2;
         }
 
         //MULTIPICATION BUTTON
         
         if(e.getSource()==M){
-            zt=tf.getText();
-            z=zt+"*";
-            tf.setText(z);
+            try{
+                n1=Double.parseDouble(dl.getText());
+            } catch(NumberFormatException f) {
+                dl.setText("Invalid Format");
+                return;
+            }
+            z="";
+            dl.setText(z);
             check=3;
         }
 
         //DIVIDE BUTTON
 
         if(e.getSource()==D){
-            zt=tf.getText();
-            z=zt+"/";
-            tf.setText(z);
+            try{
+                n1=Double.parseDouble(dl.getText());
+            } catch(NumberFormatException f) {
+                dl.setText("Invalid Format");
+                return;
+            }
+            z="";
+            dl.setText(z);
             check=4;
         }
 
@@ -247,15 +265,15 @@ public class equal extends JFrame implements ActionListener{
             check=0;
             R=0;
             z="";
-            tf.setText(z);
+            dl.setText(z);
         }
         //TO CALCULATE THE VALUE GIVEN
 
         if(e.getSource()==E){          
             try{
-              n2=Double.parseDouble(tf.getText());
+              n2=Double.parseDouble(dl.getText());
               }catch(Exception f){
-                tf.setText("ENTER NUMBER FIRST ");
+                dl.setText("ENTER NUMBER FIRST ");
                 return;
               }
               if(check==1)
@@ -266,7 +284,7 @@ public class equal extends JFrame implements ActionListener{
               R=n1*n2;
               if(check==4)
               R =n1/n2;    
-              tf.setText(String.valueOf(R));
+              dl.setText(String.valueOf(R));
   }
 }
         
