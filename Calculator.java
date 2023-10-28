@@ -2,7 +2,7 @@ import java.awt.event.*;
 import javax.swing.JFrame;
 import java.awt.*;
 
-public class equal extends JFrame implements ActionListener{
+public class Calculator extends JFrame implements ActionListener{
     JFrame f;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,Remove,Cls;
     Button A,S,M,D,E ;
@@ -10,7 +10,7 @@ public class equal extends JFrame implements ActionListener{
     Label H,dl;
     double R;
     
-    equal(){
+    Calculator(){
         f = new JFrame("Ansh & Shivansh..... Calculator");
         H = new Label("<|<|...HAR.HAR.MAHADEV...|>|>");
         H.setBounds(180,50,300,50);
@@ -289,6 +289,6 @@ public class equal extends JFrame implements ActionListener{
 }
         
         public static void main(String args[]){
-        new equal();
+        new Calculator();
     }
 }
