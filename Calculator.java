@@ -13,15 +13,16 @@ public class Calculator extends JFrame implements ActionListener{
     
     Calculator(){
         f = new JFrame("Ansh & Shivansh..... Calculator");
-        f.setBackground(Color.RED);
+       
 
         H = new Label("<|<|...HAR.HAR.MAHADEV...|>|>");
-        H.setBounds(180,50,300,50);
+        H.setBounds(180,100,200,40);
         H.setForeground(Color.ORANGE);
 
         dl = new Label();
-        dl.setBackground(Color.LIGHT_GRAY);
-        dl.setBounds(50,150,400,50);
+        dl.setBackground(Color.BLUE);
+        dl.setBounds(50,150,400,40);
+        dl.setForeground(Color.YELLOW);
         
         //Numbers 1 to 10
 
@@ -170,7 +171,7 @@ public class Calculator extends JFrame implements ActionListener{
         }
         if(e.getSource()==b2){
             zt = dl.getText();
-            z=zt+"2";
+            z=zt+"2"; 
             dl.setText(z);
         }
         if(e.getSource()==b3){
