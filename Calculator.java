@@ -5,13 +5,16 @@ import java.awt.*;
 public class Calculator extends JFrame implements ActionListener{
     JFrame f;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,Remove,Cls;
-    Button A,S,M,D,E ;
+    Button A,S,M,D,E;
+    Button DOT,MOD;
     double n1,n2,check;
     Label H,dl;
     double R;
     
     Calculator(){
         f = new JFrame("Ansh & Shivansh..... Calculator");
+        f.setBackground(Color.RED);
+
         H = new Label("<|<|...HAR.HAR.MAHADEV...|>|>");
         H.setBounds(180,50,300,50);
         H.setForeground(Color.ORANGE);
@@ -21,6 +24,7 @@ public class Calculator extends JFrame implements ActionListener{
         dl.setBounds(50,150,400,50);
         
         //Numbers 1 to 10
+
          b1 = new Button("1");
          b1.setBounds(50,200,100,45);
          b1.setBackground(Color.YELLOW);
@@ -62,6 +66,7 @@ public class Calculator extends JFrame implements ActionListener{
          b0.setBounds(150,350,100,45);
 
          //Operators & Function Button
+
          S = new Button("-");
          S.setBounds(350,250,100,45);
          S.setBackground(Color.YELLOW);
@@ -79,16 +84,25 @@ public class Calculator extends JFrame implements ActionListener{
          D.setBackground(Color.YELLOW);
 
          E = new Button("=");
-         E.setBounds(50,400,400,45);
+         E.setBounds(50,450,400,45);
          E.setBackground(Color.YELLOW);
+
+         DOT = new Button(".");
+         DOT.setBounds(50,350,180,45);
+         DOT.setBackground(Color.YELLOW);
+         DOT.setForeground(Color.RED);
+
+         MOD = new Button("%");
+         MOD.setBounds(250,350,100,45);
+         MOD.setBackground(Color.YELLOW);
 
          Remove = new Button("Remove");
          Remove.setBackground(Color.YELLOW);
-         Remove.setBounds(50,350,100,45);
+         Remove.setBounds(50,400,200,45);
 
          Cls = new Button("Cls");
          Cls.setBackground(Color.YELLOW);
-         Cls.setBounds(250,350,100,45);
+         Cls.setBounds(250,400,200,45);
 
          b1.addActionListener(this);
          b2.addActionListener(this);
@@ -108,8 +122,13 @@ public class Calculator extends JFrame implements ActionListener{
          E.addActionListener(this);
          Cls.addActionListener(this);
          Remove.addActionListener(this);
+
+         DOT.addActionListener(this);
+         MOD.addActionListener(this);
+
      
         //ADDING TO FRAME
+
         f.add(H);
         f.add(dl);
         f.add(b1);
@@ -128,7 +147,11 @@ public class Calculator extends JFrame implements ActionListener{
         f.add(b0);
         f.add(Cls);
         f.add(D);
+        f.add(DOT);
+        f.add(MOD);
         f.add(E);
+        
+        
 
         f.setSize(540,540);
         f.setLayout(null);
@@ -257,6 +280,29 @@ public class Calculator extends JFrame implements ActionListener{
             check=4;
         }
 
+        //for MOD OPERATOR
+
+        if(e.getSource()==MOD){
+            try{
+                n1=Double.parseDouble(dl.getText());
+            } catch(NumberFormatException f) {
+                dl.setText("Invalid Format");
+                return;
+            }
+            z="";
+            dl.setText(z);
+            check=5;
+        }
+
+        //FOR DOT OPERATOR
+
+        if(e.getSource()==DOT){
+            zt = dl.getText();     
+            z = zt + ".";
+            dl.setText(z);
+        }
+        
+
         //CLEAR SCREEN
 
         if(e.getSource()==Cls){
@@ -283,7 +329,9 @@ public class Calculator extends JFrame implements ActionListener{
               if(check==3)
               R=n1*n2;
               if(check==4)
-              R =n1/n2;    
+              R =n1/n2; 
+              if(check==5)   
+              R = n1%n2;
               dl.setText(String.valueOf(R));
   }
 }
