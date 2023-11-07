@@ -1,7 +1,16 @@
 import java.awt.*;
 import javax.swing.*;
-public class Login extends JFrame{
-  public static void main(String[] args){
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Login extends JFrame implements ActionListener{
+  JLabel H,f1,f2;
+  TextField tf,t2f;
+  Button b;
+  
+   Login(){
+
+   
     String a = "<|<|...HAR...HAR...MAHADEV...|>|>";
     System.out.println(a);
 
@@ -23,7 +32,10 @@ public class Login extends JFrame{
 
     JButton b = new JButton("LOGIN");
     b.setBounds(50, 180, 100, 30);
-    b.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
+    b.setBorder(BorderFactory.createDashedBorder(Color.ORANGE));
+    b.setBackground(Color.YELLOW);
+    b.setForeground(Color.darkGray);
+    b.addActionListener(this);
 
     f.add(H);
     f.add(tf);
@@ -34,5 +46,18 @@ public class Login extends JFrame{
     f.setSize(400,400);
     f.setLayout(null);
     f.setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e){
+      
+      String Username = tf.getText();
+      String Password = t2f.getName();
+      if(Username.equals("ansh")&&Password.equals("1411"));
+      JOptionPane.showMessageDialog(null,"Login Successful");
+      System.out.println("JAI SHREE RAM" + Username + "and" + Password + "is"+ b);
+      
+    }
+  
+  public static void main(String[] args){
+    new Login();
   }
 }
