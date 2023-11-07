@@ -52,8 +52,8 @@ public class Login extends JFrame implements ActionListener{
       String Username = tf.getText();
       String Password = t2f.getName();
       if(Username.equals("ansh")&&Password.equals("1411"));
-      JOptionPane.showMessageDialog(null,"Login Successful");
-      System.out.println("JAI SHREE RAM" + Username + "and" + Password + "is"+ b);
+      JOptionPane.showMessageDialog(null,"Login Successful" +b );
+    
       
     }
   
